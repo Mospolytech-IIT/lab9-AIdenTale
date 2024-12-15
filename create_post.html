@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать запись</title>
+</head>
+<body>
+    <h1>Создать запись</h1>
+    <form action="/posts/" method="post">
+        <label for="title">Название:</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="content">Содержимое:</label>
+        <textarea id="content" name="content" required></textarea><br>
+
+        <label for="user_id">Пользователь:</label>
+        <select id="user_id" name="user_id" required>
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Создать</button>
+    </form>
+</body>
+</html>

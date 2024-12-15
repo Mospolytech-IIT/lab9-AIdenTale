@@ -1,0 +1,58 @@
+### Создание пользователя
+POST http://127.0.0.1:8000/users/
+Content-Type: application/x-www-form-urlencoded
+
+username=Иван
+email=ivan@example.com
+password=qwerty123
+
+### Создание пользователя
+POST http://127.0.0.1:8000/users/
+Content-Type: application/x-www-form-urlencoded
+
+username=Анна
+email=anna@example.com
+password=pass456
+
+### Получение списка всех пользователей
+GET http://127.0.0.1:8000/users/
+
+### Создание поста
+POST http://127.0.0.1:8000/posts/
+Content-Type: application/x-www-form-urlencoded
+
+title=Мой первый пост
+content=Это мой первый тестовый пост!
+user_id=1
+
+### Создание поста
+POST http://127.0.0.1:8000/posts/
+Content-Type: application/x-www-form-urlencoded
+
+title=Добро пожаловать
+content=Это пост Анны о приветствии.
+user_id=2
+
+### Получение списка всех постов
+GET http://127.0.0.1:8000/posts/
+
+### Получение постов пользователя
+GET http://127.0.0.1:8000/users/1/posts
+
+### Обновление пользователя
+PUT http://127.0.0.1:8000/users/1/email
+Content-Type: application/x-www-form-urlencoded
+
+email=ivan.new@example.com
+
+### Обновление содержимого поста
+PUT http://127.0.0.1:8000/posts/1/content
+Content-Type: application/x-www-form-urlencoded
+
+content=Обновленный контент моего первого поста.
+
+### Удаление поста
+DELETE http://127.0.0.1:8000/posts/2
+
+### Удаление пользователя
+DELETE http://127.0.0.1:8000/users/2

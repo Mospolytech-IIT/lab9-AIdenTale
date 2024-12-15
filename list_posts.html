@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список записей</title>
+</head>
+<body>
+    <h1>Список записей</h1>
+    <a href="/posts/create">Создать запись</a>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <strong>{{ post.title }}</strong> by {{ post.user.username }}<br>
+            {{ post.content }}
+            <a href="/posts/{{ post.id }}/edit">Редактировать</a>
+            <form action="/posts/{{ post.id }}" method="post" style="display:inline;">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">Удалить</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
