@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+</head>
+<body>
+    <h1>Список пользователей</h1>
+    <a href="/users/create">Создать нового пользователя</a>
+    <ul>
+        {% for user in users %}
+        <li>
+            {{ user.username }} ({{ user.email }})
+            <a href="/users/{{ user.id }}/edit">Edit</a>
+            <form action="/users/{{ user.id }}" method="post" style="display:inline;">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
